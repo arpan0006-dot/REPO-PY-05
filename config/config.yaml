@@ -1,0 +1,9 @@
+
+environments:
+
+
+  practice:
+    base_url: "https://www.shoppersstack.com/"
+    browser: "chrome"
+
+
