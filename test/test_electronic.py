@@ -23,17 +23,13 @@ class TestElectronic(BaseTest):
         electronic_page.open_url(self.config["base_url"])
         sleep(10)
         electronic_page.click_electronic_menu()
-        sleep(2)
         electronic_page.click_camera_option()
         electronic_page.click_first_product()
         electronic_page.click_add_to_cart_button()
         assert "user-signin" in self.driver.current_url, "Electronic product was not added to cart"
 
-    # def test_every_product_of_camera(self):
-    #     electronic_page = ElectronicPage(self.driver)
-    #     electronic_page.open_url(self.config["base_url"])
-    #     sleep(20)
-    #     electronic_page.click_all_product_of_camera()
-
-
-# git push origin develop
+    def test_every_product_of_camera(self):
+        electronic_page = ElectronicPage(self.driver)
+        electronic_page.open_url(self.config["base_url"])
+        sleep(10)
+        electronic_page.click_all_product_of_camera()
