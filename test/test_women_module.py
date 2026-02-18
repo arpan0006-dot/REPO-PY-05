@@ -1,25 +1,26 @@
-from selenium.webdriver.common.by import By
-from pages.base_page import Basepage
-class WomenPage(BasePage):
 
-    WOMEN_TAB = (By.XPATH, "//a[text()='Women']")
-    FIRST_PRODUCT = (By.XPATH, "(//div[contains(@class,'product-card')])[1]")
-    ADD_TO_CART = (By.XPATH, "//button[text()='Add to cart']")
-    CART_ICON = (By.XPATH, "//span[contains(@class,'cart')]")
-    CART_PRODUCT = (By.XPATH, "//div[contains(@class,'cart-product')]")
+import pytest
+from selenium import webdriver
+from page.women_page import WomenPage
 
-    def open_women_section(self):
-        self.click(self.WOMEN_TAB)
 
-    def select_first_product(self):
-        self.click(self.FIRST_PRODUCT)
+@pytest.fixture
+def setup():
+    driver = webdriver.Chrome()
+    driver.get("https://www.shoppersstack.com/")
+    driver.maximize_window()
+    yield driver
+    driver.quit()
 
-    def add_to_cart(self):
-        self.click(self.ADD_TO_CART)
 
-    def open_cart(self):
-        self.click(self.CART_ICON)
+def test_women_add_to_cart(setup):
+    driver = setup
+    women = WomenPage(driver)
 
-    def verify_product_added(self):
-        return self.get_text(self.CART_PRODUCT)
+    women.open_women_section()
+    women.select_first_product()
+    women.add_to_cart()
+    women.open_cart()
 
+    product_name = women.verify_product_added_to_cart()
+    print("Product Added:", product_name)
