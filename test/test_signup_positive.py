@@ -1,4 +1,4 @@
-from pages.signup_page import SignupPage
+from page.signup_page import SignupPage
 
 def test_valid_signup(driver):
     page = SignupPage(driver)
