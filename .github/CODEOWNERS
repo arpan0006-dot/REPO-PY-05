@@ -1,0 +1,11 @@
+
+/config/             @arpan0006-dot
+/conftest.py         @arpan0006-dot
+/pytest.ini          @arpan0006-dot
+
+/page/base_page.py   @arpan0006-dot
+/test/base_test.py   @arpan0006-dot
+
+/utilities/logger.py @arpan0006-dot
+/utilities/config_reader.py  @arpan0006-dot
+/pytest.ini   @arpan0006-dot
