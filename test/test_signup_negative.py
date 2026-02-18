@@ -1,5 +1,5 @@
 import pytest
-from pages.signup_page import SignupPage
+from page.signup_page import SignupPage
 
 @pytest.mark.parametrize("first, last, phone, email, gender, pwd, conf, accept_terms, expected_error", [
     ("", "", "", "", "", "", "", False, "Required fields"),
