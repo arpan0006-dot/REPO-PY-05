@@ -1,5 +1,5 @@
 
-from pages.beauty_page import BeautyPage
+from page.beauty_page import BeautyPage
 from test.base_test import BaseTest
 
 class TestBeauty(BaseTest):
