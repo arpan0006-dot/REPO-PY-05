@@ -5,5 +5,7 @@ environments:
   practice:
     base_url: "https://www.shoppersstack.com/"
     browser: "chrome"
+    email : "glad51194@gmail.com"
+    password : "GladishJ25!"
 
 
