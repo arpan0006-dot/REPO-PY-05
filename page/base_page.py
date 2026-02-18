@@ -3,19 +3,20 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import TimeoutException
 
+
 class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 15)
-        self.ac=ActionChains(driver)
+        self.wait = WebDriverWait(driver, 20)
+        self.ac = ActionChains(driver)
 
     def find_element(self, locator):
-        element =self.wait.until(EC.presence_of_element_located(locator))
+        element = self.wait.until(EC.visibility_of_element_located(locator))
         return element
 
     def find_elements(self, locator):
-        elements = self.wait.until(EC.presence_of_all_elements_located(locator))
+        elements = self.wait.until(EC.visibility_of_all_elements_located(locator))
         return elements
 
     def click_element(self, locator):
@@ -30,20 +31,20 @@ class BasePage:
         element = self.find_element(locator)
         return element.is_selected()
 
-    def send_keys(self,locator,text):
-        element=self.find_element(locator)
+    def send_keys(self, locator, text):
+        element = self.find_element(locator)
         element.clear()
         element.send_keys(text)
 
-    def get_text(self,locator):
+    def get_text(self, locator):
         return self.find_element(locator).text
 
-    def double_click(self,locator):
-        element=self.wait.until(EC.element_to_be_clickable(locator))
+    def double_click(self, locator):
+        element = self.wait.until(EC.element_to_be_clickable(locator))
         self.ac.double_click(element).perform()
 
-    def move_to_element(self,locator):
-        element=self.find_element(locator)
+    def move_to_element(self, locator):
+        element = self.find_element(locator)
         self.ac.move_to_element(element).perform()
 
     def get_url(self, url):

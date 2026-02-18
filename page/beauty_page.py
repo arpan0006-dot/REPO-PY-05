@@ -1,6 +1,9 @@
 from page.base_page import BasePage
+<<<<<<< HEAD
 from time import sleep
 
+=======
+>>>>>>> 734fc5fb056188ed63a8e1795926eed64970cf37
 
 class BeautyPage(BasePage):
 

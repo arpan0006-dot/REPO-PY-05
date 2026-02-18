@@ -1,5 +1,7 @@
-from test.base_test import BaseTest
+
+
 from page.beauty_page import BeautyPage
+from test.base_test import BaseTest
 from time import sleep
 
 class TestBeauty(BaseTest):
